@@ -164,7 +164,7 @@ class TrainingArguments(transformers.Seq2SeqTrainingArguments):
     gradient_accumulation_steps: int = field(default=16, metadata={"help": 'How many gradients to accumulate before to perform an optimizer step'})
     max_steps: int = field(default=10000, metadata={"help": 'How many optimizer update steps to take'})
     weight_decay: float = field(default=0.0, metadata={"help": 'The L2 weight decay rate of AdamW'}) # use lora dropout instead for regularization if needed
-    learning_rate: float = field(default=0.0002, metadata={"help": 'The learnign rate'})
+    learning_rate: float = field(default=0.0001, metadata={"help": 'The learnign rate'})
     remove_unused_columns: bool = field(default=False, metadata={"help": 'Removed unused columns. Needed to make this codebase work.'})
     max_grad_norm: float = field(default=0.3, metadata={"help": 'Gradient clipping max norm. This is tuned and works well for all models tested.'})
     gradient_checkpointing: bool = field(default=True, metadata={"help": 'Use gradient checkpointing. You want to use this.'})
@@ -472,6 +472,7 @@ def make_data_module(tokenizer: transformers.PreTrainedTokenizer, args) -> Dict:
         - self-instruct, 82612 examples
         - hh-rlhf (Anthropic), 160800 examples
         - longform, 23.7k examples
+        - oasst1 (OpenAssistant), 10000 examples
 
     Coming soon:
         - unnatural instructions core, 66010 examples
@@ -519,6 +520,8 @@ def make_data_module(tokenizer: transformers.PreTrainedTokenizer, args) -> Dict:
         dataset = load_dataset("akoksal/LongForm")
     elif args.dataset == 'vicuna':
         raise NotImplementedError("Vicuna data was not released.")
+    elif args.dataset == 'oasst1':
+        dataset = load_dataset("bjoernp/oasst1_processed")
     else:
         raise NotImplementedError(f"Dataset {args.dataset} not implemented yet.")
 
