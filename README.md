@@ -82,7 +82,7 @@ Here is [a blog](https://huggingface.co/blog/4bit-transformers-bitsandbytes) dis
 
 You can host your own gradio Guanaco demo directly in Colab following [this notebook](https://colab.research.google.com/drive/17XEqL1JcmVWjHkT-WczdYkJlNINacwG7?usp=sharing). 
 In addition, here are Colab notebooks with examples for inference and finetuning using QLoRA:
-- [Inference notebook](https://colab.research.google.com/drive/1VoYNfYDKcKRQRor98Zbf2-9VQTtGJ24k?usp=sharing)
+- [Inference notebook](https://colab.research.google.com/drive/1ge2F1QSK8Q7h0hn3YKuBCOAS0bK8E0wf?usp=sharing)
 - [Finetuning notebook](https://colab.research.google.com/drive/1VoYNfYDKcKRQRor98Zbf2-9VQTtGJ24k?usp=sharing)
 
 Other examples are found under the `examples/` folder.
@@ -99,6 +99,9 @@ We include scripts adapted from the FastChat repo to automatically evaluate mode
 To facilitate the replication of our evaluation and future work in this area, we release GPT-4 and human ratings of our systems. These are found under `eval/ratings-human` and `eval/ratings-gpt4`.
 
 More details can be found at `eval/EVAL_README.md`.
+
+## Dataset for Guanaco
+You can find the dataset used to train Guanaco models on HF at [timdettmers/openassistant-guanaco](https://huggingface.co/datasets/timdettmers/openassistant-guanaco).
 
 ## Known Issues and Limitations
 Here a list of known issues and bugs. If your issue is not reported here, please open a new issue and describe the problem.
